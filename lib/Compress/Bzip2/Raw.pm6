@@ -78,7 +78,7 @@ our sub bzWriteOpen(int32 $bzerror is rw, OpaquePointer $file, $blockSize100k = 
     BZ2_bzWriteOpen($bzerror, $file, $blockSize100k, $verbosity, $workFactor);
 }
 our sub BZ2_bzWrite(int32 is rw, OpaquePointer, Blob, int32) is native("bz2", v1) is export { * }
-our sub BZ2_bzWriteClose(int32 is rw, Pointer, int32, Pointer[uint32], Pointer[uint32]) is native("bz2", v1) { * }
+our sub BZ2_bzWriteClose(int32 is rw, Pointer, int32, Pointer[uint32], Pointer[uint32]) is native("bz2", v1) is export { * }
 our sub bzWriteClose(int32 $bzerror is rw, OpaquePointer $bz, $abandon=0, $nbytes_in=Pointer[uint32], $nbytes_out=Pointer[uint32]) is export {
     say "IN bzWriteClose" ;
     my $got = BZ2_bzWriteClose($bzerror, $bz, $abandon, $nbytes_in, $nbytes_out);
