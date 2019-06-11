@@ -27,7 +27,7 @@ if $bzerror == BZ_IO_ERROR { bzWriteClose($bzerror, $bz) }
 # Closing.
 my Pointer[uint32] $bytesIn;
 my Pointer[uint32] $bytesOut;
-bzWriteClose($bzerror, $bz, 0, $bytesIn, $bytesOut);
+BZ_bzWriteClose($bzerror, $bz, 0, $bytesIn, $bytesOut);
 ok $bzerror == BZ_OK, 'Stream was closed properly.';
 is fclose($handle), 0, "fclose returned 0";
 
